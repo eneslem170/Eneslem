@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dünyanın En Güzel Kızı İçin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Dancing Script', cursive;
+      background: linear-gradient(135deg, #c084fc, #a855f7);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+    h1 {
+      margin-top: 50px;
+      font-size: 2.5em;
+    }
+    .photo {
+      margin: 30px auto;
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .caption {
+      margin: 10px 20px;
+      font-size: 1.4em;
+    }
+    .button {
+      margin: 15px;
+      padding: 15px 30px;
+      background-color: #9333ea;
+      border: none;
+      border-radius: 25px;
+      color: white;
+      font-size: 1.2em;
+      cursor: pointer;
+    }
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+    .heart {
+      position: absolute;
+      color: #fff;
+      font-size: 2em;
+      animation: fall 3s linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0); opacity: 1; }
+      100% { transform: translateY(100vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <h1>DÜNYANIN EN GÜZEL KIZI İÇİN HAZIRLANDI</h1>
+  <p>Hoşgeldin sevgilim, güzeller güzelim... Bu site sana özel, tıpkı senin benim için özel olduğun gibi bitanem... Hoş geldiiin!</p>
+
+  <img class="photo" src="img/IMG-20240604-WA0001.jpg" alt="foto1" />
+  <div class="caption">Benim tatlı bebeğim, canım yarim. İyi ki varsın, hayatımın her yerinde mutluluk kaynağımsın.</div>
+
+  <img class="photo" src="img/IMG-20241219-WA0079.jpg" alt="foto2" />
+  <div class="caption">Seni arada üzüp duruyorum, o güzel kalbini incitiyorum. Özür dilerim sevgilim.</div>
+
+  <div class="caption">Benim canımın en içi, en güzel anlarımı armağan eden bebeğim, duam, hayalim, güzeller güzelim… İyi ki varsın, iyikimsin, her şeyimsin. Seni çok seviyorum.</div>
+
+  <div>
+    <button class="button" onclick="rainHearts()">Tıkla, kalp yağsın</button>
+    <button class="button" onclick="showNote()">Sana özel notlar</button>
+    <button class="button" onclick="hitDonkey()">Enes'e dokun</button>
+  </div>
+
+  <img class="photo" src="img/IMG-20240825-WA0011.jpg" alt="selfie" />
+  <div class="caption">Sevgilerle, eşeğin.</div>
+
+  <div id="specialNote" class="caption"></div>
+  <div class="hearts" id="heartsContainer"></div>
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function rainHearts() {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.innerText = '❤';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (2 + Math.random() * 3) + 's';
+        document.getElementById('heartsContainer').appendChild(heart);
+        setTimeout(() => heart.remove(), 3000);
+      }
+    }
+
+    function showNote() {
+      const notes = [
+        'Seni çok seviyorum Eslemim',
+        'Benim güzel gözlüm',
+        'Canımın en içi'
+      ];
+      const note = notes[Math.floor(Math.random() * notes.length)];
+      document.getElementById('specialNote').innerText = note;
+    }
+
+    function hitDonkey() {
+      alert('AHH! Eşeğe zarar verdin haha!');
+    }
+  </script>
+</body>
+</html>
